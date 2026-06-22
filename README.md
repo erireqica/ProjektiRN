@@ -53,6 +53,50 @@ $env:EXPO_PUBLIC_API_URL="http://YOUR_COMPUTER_IP:5001/api"
 npx expo start
 ```
 
+## Running on another PC
+
+If Python, Node.js, Expo, Flask, MySQL, and the project dependencies are already installed, only configure the connection details.
+
+1. Import `ProjektiRN/database_setup.sql` in phpMyAdmin. This creates the `restaurant_ordering_system` database.
+2. In `ProjektiRN/flask`, copy `.env.example` to `.env` and update the MySQL values if they differ from your local XAMPP configuration:
+
+```env
+DB_HOST=localhost
+DB_PORT=3306
+DB_USER=root
+DB_PASSWORD=
+DB_NAME=restaurant_ordering_system
+FLASK_HOST=0.0.0.0
+FLASK_PORT=5001
+```
+
+3. Set the frontend API address before starting Expo:
+
+```powershell
+# Web frontend running on the same PC
+$env:EXPO_PUBLIC_API_URL="http://localhost:5001/api"
+
+# Physical phone or another device on the same network
+$env:EXPO_PUBLIC_API_URL="http://YOUR_COMPUTER_IP:5001/api"
+
+npx expo start
+```
+
+Find the computer's IPv4 address by running `ipconfig`. When testing from another device, allow Python and TCP port `5001` through Windows Firewall. Both devices must be connected to the same network.
+
+Start the backend from `ProjektiRN/flask`:
+
+```powershell
+.\.venv\Scripts\Activate.ps1
+python app.py
+```
+
+Start the frontend from `ProjektiRN` in another terminal:
+
+```powershell
+npx expo start
+```
+
 ## Main flows
 
 - Browse, search, and filter the restaurant menu without an account
