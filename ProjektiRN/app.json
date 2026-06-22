@@ -1,11 +1,12 @@
 {
   "expo": {
-    "name": "ProjektiRN",
-    "slug": "ProjektiRN",
+    "name": "Ember & Olive",
+    "slug": "ember-and-olive",
     "version": "1.0.0",
-    "orientation": "portrait",
+    "orientation": "default",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
+    "backgroundColor": "#F8F5EF",
     "ios": {
       "supportsTablet": true
     },
